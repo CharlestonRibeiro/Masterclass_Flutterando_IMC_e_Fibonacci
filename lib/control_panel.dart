@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:fuction_dart_imc_01/imc.dart';
+
 class ControlPanel {
   String menu = '''
             Painel de controle:
@@ -9,6 +11,8 @@ class ControlPanel {
           ''';
 
   int? choice;
+
+  final imc = IMC();
 
   void panel() {
     while (choice != 0) {
@@ -22,7 +26,7 @@ class ControlPanel {
           break;
 
         case 1:
-          print('Funcão IMC');
+          imc.calculationIMC();
           break;
 
         case 2:
@@ -36,7 +40,4 @@ class ControlPanel {
       }
     }
   }
-
-   
- 
 }
