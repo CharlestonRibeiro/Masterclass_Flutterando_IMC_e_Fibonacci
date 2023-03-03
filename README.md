@@ -96,15 +96,54 @@ class Fibonacci {
 }
 ```
 
+### Regra de 3
+
+Função da regra de 3, levando em consideração que será considerado o argumento vazio como valor a ser encontrado, logo, poderá ter apenas um valor necessáriamente "vazio".
+
+```
+class RuleOf3 {
+  double? _number1;
+  double? _number2;
+  double? _number3;
+  double? _group1;
+  double? _x;
+
+  void rule() {
+    print('Funcão Regra de 3');
+    print('');
+    print('Digite um número');
+    _number1 = double.parse(stdin.readLineSync()!);
+    print('Digite o segundo número');
+    _number2 = double.parse(stdin.readLineSync()!);
+    print('Digite o terceiro número');
+    _number3 = double.parse(stdin.readLineSync()!);
+
+    _group1 = _number1! * _number2!;
+
+    _x = _group1! / _number3!;
+
+    print('*' * 30);
+    print('Resultado:');
+
+    print(_x!.toStringAsFixed(0));
+
+    print('*' * 30);
+    print('');
+  }
+} 
+```
+
 As soluções propostas são gerenciadas por uma classe que funciona como um painel de controle. 
 
 
 ```
 class ControlPanel {
-  final String _menu = '''
+  final String _menu =
+      '''
             Painel de controle:
             1 - Funcão IMC;
             2 - Função Fibonacci;
+            3 - Função Regra de 3;
             0 - sair
           ''';
 
@@ -112,6 +151,7 @@ class ControlPanel {
 
   final _imc = IMC();
   final _fibonacci = Fibonacci();
+  final _roleOf3 = RuleOf3();
 
   void panel() {
     while (_choice != 0) {
@@ -130,6 +170,10 @@ class ControlPanel {
 
         case 2:
           _fibonacci.calculationFibonacci();
+          break;
+
+        case 3:
+          _roleOf3.rule();
           break;
 
         default:
