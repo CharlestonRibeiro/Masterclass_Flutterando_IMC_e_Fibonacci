@@ -2,12 +2,15 @@ import 'dart:io';
 
 import 'package:fuction_dart_imc_01/fibonacci.dart';
 import 'package:fuction_dart_imc_01/imc.dart';
+import 'package:fuction_dart_imc_01/rule_of_3.dart';
 
 class ControlPanel {
-  final String _menu = '''
+  final String _menu =
+      '''
             Painel de controle:
             1 - Funcão IMC;
             2 - Função Fibonacci;
+            3 - Função Regra de 3;
             0 - sair
           ''';
 
@@ -15,6 +18,7 @@ class ControlPanel {
 
   final _imc = IMC();
   final _fibonacci = Fibonacci();
+  final _roleOf3 = RuleOf3();
 
   void panel() {
     while (_choice != 0) {
@@ -33,6 +37,10 @@ class ControlPanel {
 
         case 2:
           _fibonacci.calculationFibonacci();
+          break;
+
+        case 3:
+          _roleOf3.rule();
           break;
 
         default:
